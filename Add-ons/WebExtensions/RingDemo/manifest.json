@@ -1,0 +1,28 @@
+{
+    "descrption": "Ring Demo",
+    "manifest_version": 2,
+    "name": "RingDemo",
+    "version": "1.0",
+    "homepage_url": "https://github.com/sevaivanov/ring-web/tree/master/Add-ons/WebExtensions/RingDemo",
+
+    "icons": {
+        "logo": "icons/ring.svg"
+    },
+
+    "applications": {
+        "gecko": {
+            "id": "ringdemo@ring.cx",
+            "strict_min_version": "1.0"
+        }
+    },
+
+    "permissions": [
+        "activeTab"
+    ],
+
+    "browser_action": {
+        "default_icon": "icons/ring.svg",
+        "default_title": "RingDemo",
+        "default_popup": "popup/contacts.html"
+    }
+}
