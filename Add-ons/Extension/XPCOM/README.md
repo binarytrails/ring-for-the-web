@@ -14,7 +14,7 @@ I followed [this](http://www.iosart.com/firefox/xpcom/) to build the xpcom-sampl
 
 ## Compatibility
 
-> In August 2015, Mozilla announced that the use of [XUL]((https://developer.mozilla.org/en-US/docs/Archive/Mozilla/XULRunner) for creating Firefox add-ons would be deprecated in the future in favour of WebExtensions.
+> In August 2015, Mozilla announced that the use of [XUL](https://developer.mozilla.org/en-US/docs/Archive/Mozilla/XULRunner) for creating Firefox add-ons would be deprecated in the future in favour of WebExtensions.
 
 ### Web browser engine
 
