@@ -1,0 +1,19 @@
+DEPTH	    = ../..
+topsrcdir	= @top_srcdir@
+srcdir		= @srcdir@
+VPATH		= @srcdir@
+	
+include $(DEPTH)/config/autoconf.mk
+	
+MODULE = ringdemo
+	
+DIRS = public src
+	
+XPI_NAME = ringdemo
+INSTALL_EXTENSION_ID = demo@ring.cx
+XPI_PKGNAME	= myextension
+	
+DIST_FILES = install.rdf
+	
+include $(topsrcdir)/config/rules.mk
+

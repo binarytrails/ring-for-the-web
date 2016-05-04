@@ -1,0 +1,21 @@
+DEPTH		= ../../..
+topsrcdir	= @top_srcdir@
+srcdir		= @srcdir@
+VPATH		= @srcdir@
+	
+include $(DEPTH)/config/autoconf.mk
+	
+MODULE = ringdemo
+XPIDL_MODULE = ringdemo
+	
+XPI_NAME = ringdemo
+	
+EXPORTS = \
+  myHeader.h \
+  $(NULL)
+	
+XPIDLSRCS = \
+  myIFirstComponent.idl \
+  $(NULL)
+	
+include $(topsrcdir)/config/rules.mk
