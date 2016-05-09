@@ -23,8 +23,7 @@ function init()
 
     if (!program.address)
     {
-        console.log(program.help());
-        process.exit(0);
+        program.address = "127.0.0.1:8000";
     }
 }
 
@@ -42,20 +41,6 @@ function startDaemon()
             console.log(stdout);
         }
         console.log(stderr);
-        if(error)
-        {
-            console.log(error);
-        }
-    });
-
-    if(program.verbose)
-    {
-        console.log('Building the C++ daemon interface');
-    }
-
-    var command = 'node-gyp configure build';
-    childProcess.exec(command, function(error, stdout, stderr)
-    {
         if(error)
         {
             console.log(error);
@@ -89,7 +74,7 @@ function startServer()
 
     io.on('connection', function(socket)
     {
-    //    socket.emit('setContent', 'Pushed: ' + wring.hello());
+        socket.emit('setContent', 'Pushed: ' + wring.hello());
 
         socket.on('getContent', function()
         {
