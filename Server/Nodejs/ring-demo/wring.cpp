@@ -25,12 +25,3 @@ namespace demo
     NODE_MODULE(addon, init)
 }
 
-
-int multiply(int x, int y);
-
-int main(){ return 0;}
-
-int multiply(int x, int y)
-{
-    return x * y;
-}
