@@ -1,0 +1,7 @@
+// See http://www.swig.org/Doc2.0/Go.html
+%{
+    #include "daemon.hxx"
+%}
+
+%include "daemon.hxx"
+
