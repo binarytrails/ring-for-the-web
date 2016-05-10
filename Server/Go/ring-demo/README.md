@@ -8,3 +8,5 @@
 
     go doc net/http
 
+[Go for C++ Programmers](https://github.com/golang/go/wiki/GoForCPPProgrammers)
+
