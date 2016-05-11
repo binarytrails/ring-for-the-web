@@ -35,7 +35,7 @@ There is some documentaiton about how to use SWIG and Go on their [website](http
 There is two ways to do it:
 
 	go build -v
-	./ring-demo
+	./web-go-cpp
 
 	go run server.go
 
@@ -49,7 +49,7 @@ There is two ways to achieve that:
 
     It's time to go [beyond the horizon](https://en.wikipedia.org/wiki/Event_Horizon_%28film%29):
 
-	    cd /tmp/.../ring-web/deamon/_obj/
+	    cd /tmp/.../web-go-cpp/deamon/_obj/
 	    go doc
 	    go doc <Method>
 
@@ -57,7 +57,7 @@ There is two ways to achieve that:
 
     Go into your package folder containing the .swigcxx file. In our case:
 
-        cd ring-demo/daemon/
+        cd web-go-cpp/daemon/
 
     Warning: You will have to delete manually the SWIG generated files:
 
