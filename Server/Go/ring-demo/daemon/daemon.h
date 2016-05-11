@@ -1,7 +1,8 @@
-#ifndef DAEMON_HXX
-#define DAEMON_HXX
+#ifndef DAEMON_H
+#define DAEMON_H
 
 #include <iostream>
+#include <vector>
 
 class Daemon
 {
@@ -10,7 +11,7 @@ class Daemon
         ~Daemon();
 
         std::string echo();
-        void echo(std::string input);
+        void echo(std::vector<std::string> *results);
 };
 
 #endif

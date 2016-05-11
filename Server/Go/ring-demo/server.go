@@ -12,13 +12,14 @@ func main(){
 
     fmt.Println(dring.Echo())
 
-    //fmt.Println(dring.Echo("test"))
+    diveAndGrab := daemon.NewStringVector()
+    dring.Echo(diveAndGrab)
+    fmt.Println(diveAndGrab.Get(0))
 
     http.HandleFunc("/", handlerRoot)
 
     fmt.Println("Listening on http://127.0.0.1:8080")
-
-    //http.ListenAndServe(":8080", nil)
+    http.ListenAndServe(":8080", nil)
 }
 
 func handlerRoot(w http.ResponseWriter, request *http.Request){

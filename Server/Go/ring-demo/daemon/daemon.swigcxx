@@ -1,7 +1,19 @@
 // See http://www.swig.org/Doc2.0/Go.html
+
+%module daemon
+
 %{
-    #include "daemon.hxx"
+    #include "daemon.h"
 %}
 
-%include "daemon.hxx"
+%include <typemaps.i>
+%include "std_string.i"
+%include "std_vector.i"
+
+namespace std {
+   %template(StringVector) vector<string>;
+   %template(ByteVector) vector<char>;
+}
+
+%include "daemon.h"
 
