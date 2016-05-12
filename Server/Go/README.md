@@ -24,11 +24,11 @@ Keep the temporary build files:
 
 ### Wrapping C++ in C
 
-@TODO
+[Working example](https://github.com/burke/howto-go-with-cpp)
 
 ### Using SWIG for C++
 
-There is some documentaiton about how to use SWIG and Go on their [website](http://www.swig.org/Doc2.0/Go.html) but it is not always accurate. Starting from Go 1.2 (I am using [1.6.2](https://golang.org/doc/go1.6#swig)), SWIG has been merged into Go which implies that you don't need to run a variety of SWIG commands by hand. Go handles almost everything.
+There is some documentaiton about how to use SWIG and Go on their [website](http://www.swig.org/Doc2.0/Go.html) but it is not always accurate(i.e. [type mappings](http://www.swig.org/Doc2.0/Go.html#Go_primitive_type_mappings) such as int -> int where in reality int32 -> int). Starting from Go 1.2 (I am using [1.6.2](https://golang.org/doc/go1.6#swig)), SWIG has been merged into Go which implies that you don't need to run a variety of SWIG commands by hand. Go handles almost everything.
 
 #### Compiling and running
 
