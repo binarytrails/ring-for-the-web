@@ -1,0 +1,5 @@
+g++ -o main main.cxx -I./server -L./server -lserver
+./server/libserver.so: error adding symbols: Archive has no index; run ranlib to add one
+collect2: error: ld returned 1 exit status
+Makefile:17: recipe for target 'main' failed
+make: *** [main] Error 1
