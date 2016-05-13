@@ -1,0 +1,3 @@
+go build -v -buildmode=c-shared -o sum.so sum.go
+gcc -Wall -o main main.c ./sum.so
+./main
