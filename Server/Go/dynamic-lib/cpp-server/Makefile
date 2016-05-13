@@ -17,4 +17,4 @@ main:
 	g++ -o $@ main.cxx -I./server -L./server -lserver
 
 clean:
-	rm -f main server/libserver.*
+	rm -f main server/libserver.* server/server.a

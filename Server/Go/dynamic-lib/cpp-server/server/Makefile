@@ -7,8 +7,9 @@ else
 endif
 
 libserver$(DYLIB_EXT):
-	# New in Go 1.5, build Go dynamic lib
+	# odd that both are needed?
+	go build -v -buildmode=c-archive
 	go build -v -o $@ -buildmode=c-shared
 
 clean:
-	rm -f libserver.*
+	rm -f libserver.* server.a
