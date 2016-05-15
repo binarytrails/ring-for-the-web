@@ -6,13 +6,12 @@ import (
     "log"
     "net/http"
     "github.com/gorilla/mux"
-    //"../daemon"
 )
 
-var daemonMessage string = ""
+var daemonMessage string = "Go: I started the started"
 var serverMessage string = "" +
-    "Listening on http://127.0.0.1:8080\n" +
     "Routes of interest:\n" +
+    "http://127.0.0.1:8080/\n" +
     "http://127.0.0.1:8080/reply/server/sanity/\n" +
     "http://127.0.0.1:8080/echo/daemon/rabbit/\n" +
     "http://127.0.0.1:8080/non_existing/"
@@ -40,7 +39,7 @@ func main(){
 // Handlers
 
 func Root(w http.ResponseWriter, request *http.Request){
-    fmt.Fprint(w, serverMessage, "\n")
+    fmt.Fprint(w, daemonMessage, "\n")
 }
 
 func ServerReply(w http.ResponseWriter, request *http.Request) {
@@ -52,8 +51,5 @@ func DaemonEcho(w http.ResponseWriter, request *http.Request) {
     vars := mux.Vars(request)
     echo := vars["daemonEcho"]
     fmt.Println("Server:", echo)
-
-    // daemon = daemon.NewDaemon()
-    // daemon.Echo(C.CString("Daemon: " + echo))
 }
 
