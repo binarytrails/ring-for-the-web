@@ -18,7 +18,7 @@ Show the execution commands:
 
 Keep the temporary build files:
 
-    go build -work
+    go build --work
 
 ## Go with C++
 
@@ -28,11 +28,11 @@ Keep the temporary build files:
 
 ### Using SWIG for C++
 
-There is some documentaiton about how to use SWIG and Go on their [website](http://www.swig.org/Doc2.0/Go.html) but it is not always accurate(i.e. [type mappings](http://www.swig.org/Doc2.0/Go.html#Go_primitive_type_mappings) such as int -> int where in reality int32 -> int). Starting from Go 1.2 (I am using [1.6.2](https://golang.org/doc/go1.6#swig)), SWIG has been merged into Go which implies that you don't need to run a variety of SWIG commands by hand. Go handles almost everything.
+There is some documentation about how to use SWIG and Go on their [website](http://www.swig.org/Doc2.0/Go.html) but it is not always accurate(i.e. [type mappings](http://www.swig.org/Doc2.0/Go.html#Go_primitive_type_mappings) such as int -> int where in reality int32 -> int). Starting from Go 1.2 (I am using [1.6.2](https://golang.org/doc/go1.6#swig)), SWIG has been merged into Go which implies that you don't need to run a variety of SWIG commands by hand. Go handles almost everything.
 
 #### Compiling and running
 
-There is two ways to do it:
+There are two ways to do it:
 
 	go build -v
 	./web-go-cpp
@@ -41,7 +41,7 @@ There is two ways to do it:
 
 #### Getting generated methods documentation
 
-There is two ways to achieve that:
+There are two ways to achieve that:
 
 1. Telling Go to keep the temporary genarated files
 
