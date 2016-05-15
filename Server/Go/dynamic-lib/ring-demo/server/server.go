@@ -17,8 +17,9 @@ var serverMessage string = "" +
     "http://127.0.0.1:8080/non_existing/"
 
 //export initServer
-func initServer(_message *C.char) *C.char{
-    daemonMessage = C.GoString(_message)
+func initServer(message *C.char) *C.char{
+    // @TODO get *Daemon or use its interface
+    daemonMessage = C.GoString(message)
     return C.CString(serverMessage)
 }
 

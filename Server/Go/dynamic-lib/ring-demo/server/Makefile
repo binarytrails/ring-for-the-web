@@ -7,8 +7,6 @@ else
 endif
 
 libserver$(DYLIB_EXT):
-	# odd that both are needed?
-	go build -v -buildmode=c-archive
 	go build -v -o $@ -buildmode=c-shared
 
 clean:

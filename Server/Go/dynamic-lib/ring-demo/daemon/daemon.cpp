@@ -1,6 +1,11 @@
 #include "daemon.h"
 
-Daemon::Daemon(){}
+Daemon::Daemon(){
+    std::cout << "C++: Daemon is starting the Go server..";
+    char *message = "C++: Daemon started the Go server";
+    initServer(message);
+    startServer();
+}
 
 Daemon::~Daemon(){}
 
@@ -15,10 +20,7 @@ void Daemon::echo(std::vector<std::string> *results)
 }
 
 int main()
-{ 
-    std::cout << "C++: Daemon is starting the Go server..";
-    char *message = "C++: Daemon started the Go server";
-    initServer(message);
-    startServer();
+{
+    Daemon *daemon = new Daemon();
 }
 
