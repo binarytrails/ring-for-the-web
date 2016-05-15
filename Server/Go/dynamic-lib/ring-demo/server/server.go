@@ -3,30 +3,57 @@ package main
 import (
     "C"
     "fmt"
+    "log"
     "net/http"
+    "github.com/gorilla/mux"
+    //"../daemon"
 )
 
-var message string = ""
+var daemonMessage string = ""
+var serverMessage string = "" +
+    "Listening on http://127.0.0.1:8080\n" +
+    "Routes of interest:\n" +
+    "http://127.0.0.1:8080/reply/server/sanity/\n" +
+    "http://127.0.0.1:8080/echo/daemon/rabbit/\n" +
+    "http://127.0.0.1:8080/non_existing/"
 
 //export initServer
-func initServer(_message *C.char){
-    message = C.GoString(_message)
+func initServer(_message *C.char) *C.char{
+    daemonMessage = C.GoString(_message)
+    return C.CString(serverMessage)
 }
 
 //export startServer
 func startServer(){
-
-    http.HandleFunc("/", handlerRoot)
-
-    fmt.Println("Listening on http://127.0.0.1:8080")
-
-    http.ListenAndServe(":8080", nil)
+    router := mux.NewRouter().StrictSlash(true)
+    router.HandleFunc("/", Root)
+    router.HandleFunc("/reply/server/{serverReply}/", ServerReply)
+    router.HandleFunc("/echo/daemon/{daemonEcho}/", DaemonEcho)
+    fmt.Println(serverMessage)
+    log.Fatal(http.ListenAndServe(":8080", router))
 }
 
-func handlerRoot(w http.ResponseWriter, request *http.Request){
-
-    fmt.Fprint(w, message, "\n")
-
+func main(){
+    startServer()
 }
 
-func main(){}
+// Handlers
+
+func Root(w http.ResponseWriter, request *http.Request){
+    fmt.Fprint(w, serverMessage, "\n")
+}
+
+func ServerReply(w http.ResponseWriter, request *http.Request) {
+    vars := mux.Vars(request)
+    fmt.Fprintln(w, "Server Reply:", vars["serverReply"])
+}
+
+func DaemonEcho(w http.ResponseWriter, request *http.Request) {
+    vars := mux.Vars(request)
+    echo := vars["daemonEcho"]
+    fmt.Println("Server:", echo)
+
+    // daemon = daemon.NewDaemon()
+    // daemon.Echo(C.CString("Daemon: " + echo))
+}
+

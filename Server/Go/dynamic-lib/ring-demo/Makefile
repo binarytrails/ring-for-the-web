@@ -17,5 +17,5 @@ main:
 	$(MAKE) -C daemon
 
 clean:
-	rm -f daemon/main server/libserver.* server/server.a server/server
+	rm -f daemon/main server/libserver.* server/server{,.a,.h}
 	
