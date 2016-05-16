@@ -6,7 +6,7 @@ set (ring-rest_VERSION_MAJOR 1)
 set (ring-rest_VERSION_MINOR 0)
 
 # Flags for debug and release
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pthread -Wall -Wextra -Wfatal-errors -pedantic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pthread -Wall -Wextra -Wfatal-errors -pedantic -DBOOST_LOG_DYN_LINK")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -ggdb -DDEBUG ")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG -O3")
 
@@ -34,7 +34,7 @@ set(SOURCES_LIB ${SOURCES_EXE})
 list(REMOVE_ITEM SOURCES_LIB ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
 
 # Find the needed packages
-find_package(Boost 1.60 REQUIRED COMPONENTS system program_options)
+find_package(Boost 1.60 REQUIRED COMPONENTS system program_options log)
 find_package(OpenSSL)
 
 if(NOT Boost_FOUND)

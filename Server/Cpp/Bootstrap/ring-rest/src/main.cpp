@@ -2,16 +2,13 @@
 #include <thread>
 #include <cstdint>
 
+#include <boost/log/trivial.hpp>
 #include <boost/program_options.hpp>
 
 #include "server.hpp"
 
 int main(int argc, char* argv[])
 {
-    #ifdef DEBUG
-        std::cout << __PRETTY_FUNCTION__ << "\n";
-    #endif
-  
     // Handling the arguments
     try
     {
@@ -46,13 +43,12 @@ int main(int argc, char* argv[])
         }
 
         // Server code right here, the other stuff is for boost::program_options
-        std::cout << "Initializing\n";
+        BOOST_LOG_TRIVIAL(info) << "Initializing";
 
         // Display the parameters
-        std::cout << "\tPort is " << port << "\n";
-		std::cout << "\tRunning on " << threads << (threads == 1 ? " thread\n" : " threads\n");
+		BOOST_LOG_TRIVIAL(info) << "Running on port " << port << " with " << threads << (threads == 1 ? " thread" : " threads");
 
-        // Creating the server
+        // Creating the server with a HTTP socket
         Muffin::Server<Muffin::HTTP> server(port, threads);
 
         // Run the server

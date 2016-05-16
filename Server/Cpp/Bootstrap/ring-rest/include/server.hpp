@@ -1,16 +1,13 @@
 #ifndef SERVER_HPP
 #define SERVER_HPP
 
-// Standard Library
 #include <iostream>
 #include <string>
 #include <thread>
 #include <future>    
 #include <memory>
 #include <cstdint>
-#include <unordered_map>
 
-// Boost
 #include <boost/asio.hpp>
 #include <boost/asio/ssl.hpp>
 
@@ -33,24 +30,16 @@ namespace Muffin
 				port_(port), nbThreads_(nbThreads), ios_(), 
 				acceptor_(ios_, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), port_))
 			{
-#ifdef DEBUG
-				std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
 			}
 
 			~Server()
 			{
-#ifdef DEBUG
-				std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
 				stop_();
 			}
 
 			void run()
 			{
-#ifdef DEBUG
-				std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
+				// Launch all the threaded io_services. If the server is single threaded, this will skip itself
 				for(int i = 0; i < nbThreads_;  ++i) {
                 	iosPool_.emplace_back(new boost::asio::io_service());
 					std::async(std::launch::async, [this, i]{
@@ -58,49 +47,56 @@ namespace Muffin
 					});
 				}
 
+				// Start to accept requests
 				accept_();
 				
+				// Run the main process	
 				ios_.run();
 			}
 
 		private:
 			void accept_()
 			{
-#ifdef DEBUG
-				std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
+				asio::io_service &ios = iosFinder_();
 
-				typename Muffin::Connection<T>::c_ptr new_connect = Connection<T>::create(acceptor_.get_io_service());
+				auto c = new Connection<T>(ios);
 
-				acceptor_.async_accept(new_connect->socket(),
-						boost::bind(&Server::acceptHandler_, this, new_connect,
-							boost::asio::placeholders::error));
+				acceptor_.async_accept(c->socket(), [this, c, &ios](boost::system::error_code error)
+                {
+                    if (!error)
+                    {
+                        ios.post([c]
+                        {
+                            c->start();
+                        });
+                    }
+					else
+					{
+						BOOST_LOG_TRIVIAL(error) << error.message();
+					}
+
+                    accept_();
+                });
 			}
 
 			void stop_()
 			{
-#ifdef DEBUG
-				std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
 				ios_.stop();
 				for(auto &ios: iosPool_)
 					ios->stop();
 			}
 
-			void acceptHandler_(typename Muffin::Connection<T>::c_ptr new_connect, const boost::system::error_code& error)
+			asio::io_service& iosFinder_()
 			{
-#ifdef DEBUG
-				std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
-				if (!error)
-				{
-					new_connect->start();
-					accept_();
-				}
+				if(index_ >= 4)
+					index_ = 0;
+					
+				return *iosPool_[index_];
 			}
 
 			const unsigned short port_;
 			const std::uint16_t nbThreads_;
+			unsigned int index_ = 0;
 			asio::io_service ios_;	
 			std::vector<std::unique_ptr<asio::io_service> > iosPool_;
 			asio::ip::tcp::acceptor acceptor_;

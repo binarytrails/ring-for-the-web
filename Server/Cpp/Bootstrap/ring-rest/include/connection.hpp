@@ -13,52 +13,36 @@ namespace Muffin
 {
 
 template<class T>
-class Connection: public boost::enable_shared_from_this<Connection<T> >
+class Connection
 {
 	public:
-		typedef boost::shared_ptr<Connection<T> > c_ptr;
-
-		static c_ptr create(boost::asio::io_service& io_service)
-		{
-#ifdef DEBUG
-			std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
-			return c_ptr(new Connection(io_service));
-		}
+		Connection(boost::asio::io_service& io_service): 
+			socket_(io_service)
+		{}
 
 		T& socket()
 		{
-#ifdef DEBUG
-			std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
 			return socket_;
 		}
 
 		void start()
 		{
-#ifdef DEBUG
-			std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
 			socket_.async_read_some(boost::asio::buffer(buffer_), 
-				[this](const boost::system::error_code &error, std::size_t transferred){
-					if(error)
+                [this](const boost::system::error_code& error, std::size_t bytes)
+                {
+                    if(error)
+                    {
+						BOOST_LOG_TRIVIAL(error) << error.message();
+                    }
+					else
 					{
-						std::cout << "Error while reading some data : " << error.message() << "\n";
+						BOOST_LOG_TRIVIAL(info) << bytes << " bytes transferred";
+						BOOST_LOG_TRIVIAL(info) << std::cout.write(&buffer_[0], 4096);
 					}
-
-					std::cout << transferred << " bytes transferred\n";
-					std::cout.write(&buffer_[0], 4096);
-						
-			});
+                });
 		}
 
 	private:
-		Connection(boost::asio::io_service& io_service): socket_(io_service)
-		{
-#ifdef DEBUG
-			std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
-		}
 
 		T socket_;
 		boost::array<char, 4096> buffer_;
