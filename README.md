@@ -52,7 +52,15 @@ At the moment, we are going with the second option of delegating the control to 
 
 ### Wrapping the Daemon
 
+#### Go
+
 See Go [Readme](Server/Go/README.md) and [example](Server/Go/wrapper).
+
+#### NodeJS
+
+The base of the server has been written but the binding has not been implemented.
+
+See [example](Server/Nodejs/ring-demo/).
 
 ### Delegating control to the Daemon using shared library
 
@@ -89,12 +97,6 @@ Go supports pointers but it provides automatic garbage collection of allocated m
 
 See [Readme](Server/Go/README.md) and [example](Server/Go/dynamic-lib/ring-demo/).
 
-#### NodeJS
-
-The base of the server has been written but the binding has not been implemented.
-
-See [example](Server/Nodejs/ring-demo/).
-
 #### C / C++
 
 The Pro is that is it directly compatible with C++
@@ -107,6 +109,5 @@ TODO Move Cpp/ring-rest -> Cpp/Bootstrap/ring-rest/
 
 Library | C / C++ | GPLv3 Compatible | Cross-platform | Complexity | Size | Latest Release 
 ---|---|---|---|---|---|---
-
-TODO
+[Restbed](https://github.com/Corvusoft/restbed) | C++ | Yes | Yes | Average | Large | 4.0 : 28-05-2016 
 
