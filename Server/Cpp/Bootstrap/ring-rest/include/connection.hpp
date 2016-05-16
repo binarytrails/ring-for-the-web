@@ -39,13 +39,17 @@ class Connection: public boost::enable_shared_from_this<Connection<T> >
 #ifdef DEBUG
 			std::cout << __PRETTY_FUNCTION__ << "\n";
 #endif
-			message_ = "Ayy LMAO";
+			socket_.async_read_some(boost::asio::buffer(buffer_), 
+				[this](const boost::system::error_code &error, std::size_t transferred){
+					if(error)
+					{
+						std::cout << "Error while reading some data : " << error.message() << "\n";
+					}
 
-			boost::asio::async_write(socket_, boost::asio::buffer(message_),
-					boost::bind(&Connection::writeHandler_, 
-						boost::enable_shared_from_this<Connection<T> >::shared_from_this(),
-						boost::asio::placeholders::error,
-						boost::asio::placeholders::bytes_transferred));
+					std::cout << transferred << " bytes transferred\n";
+					std::cout.write(&buffer_[0], 4096);
+						
+			});
 		}
 
 	private:
@@ -56,22 +60,8 @@ class Connection: public boost::enable_shared_from_this<Connection<T> >
 #endif
 		}
 
-		void writeHandler_(const boost::system::error_code &error, size_t size)
-		{
-#ifdef DEBUG
-			std::cout << __PRETTY_FUNCTION__ << "\n";
-#endif
-			if(error)
-				std::cout << "Error : " << error << "\n";	
-			else
-				std::cout << size << " transferred\n";
-		}
-
 		T socket_;
-		std::string message_;
-  
-
-
+		boost::array<char, 4096> buffer_;
 };
 
 } // namespace Muffin

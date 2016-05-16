@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include <cstdint>
 
 #include <boost/program_options.hpp>
 
@@ -14,11 +15,15 @@ int main(int argc, char* argv[])
     // Handling the arguments
     try
     {
+		unsigned short port;
+		std::uint16_t threads;
+
         namespace po = boost::program_options;
         po::options_description desc("Options");
         desc.add_options()
             ("help,h", "Print help messages")
-            ("port,p", po::value<unsigned short>()->default_value(8080), "Server's port. Default is 8080");
+            ("port,p", po::value<unsigned short>(&port)->default_value(8080), "Server's port. Default is 8080")
+			("threads,t", po::value<std::uint16_t>(&threads)->default_value(1), "Enable multithreading. Default is 1");
 
         po::variables_map vm;
         try
@@ -43,12 +48,12 @@ int main(int argc, char* argv[])
         // Server code right here, the other stuff is for boost::program_options
         std::cout << "Initializing\n";
 
-        // Copy the parameters
-        unsigned short port = vm["port"].as<unsigned short>();
-        std::cout << "\tPort is " << port <<  "\n";
+        // Display the parameters
+        std::cout << "\tPort is " << port << "\n";
+		std::cout << "\tRunning on " << threads << (threads == 1 ? " thread\n" : " threads\n");
 
         // Creating the server
-        Muffin::Server<Muffin::HTTP> server(port);
+        Muffin::Server<Muffin::HTTP> server(port, threads);
 
         // Run the server
         server.run();
