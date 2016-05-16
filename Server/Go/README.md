@@ -22,6 +22,27 @@ Keep the temporary build files:
 
 ## Go with C++
 
+### Using cgo
+
+A possible way would be to use the Go C library along with different C headers.
+
+#### Memory management
+
+    // #include <stdio.h>
+    // #include <stdlib.h>
+    import "C"
+    import "unsafe"
+
+    // Memory allocations made by C code are not known to Go's memory manager
+    cs := C.CString("hello")
+
+    // You have to release them
+    C.free(unsafe.Pointer(cs))
+
+The .free is contained in stdlib.h which means that you do need to include it.
+
+Read more about the [cgo command](https://golang.org/cmd/cgo/).
+
 ### Wrapping C++ in C
 
 [Working example](https://github.com/burke/howto-go-with-cpp)
