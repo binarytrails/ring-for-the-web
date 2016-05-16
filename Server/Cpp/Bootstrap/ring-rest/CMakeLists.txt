@@ -37,14 +37,15 @@ list(REMOVE_ITEM SOURCES_LIB ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
 find_package(Boost 1.60 REQUIRED COMPONENTS system program_options)
 find_package(OpenSSL)
 
-
+if(NOT Boost_FOUND)
+	message(FATAL_ERROR "Boost not found, please go to http://www.boost.org to install the latest version of Boost")
+elseif(NOT OPENSSL_FOUND)
+	message(FATAL_ERROR "OpenSSL not found, please go to https://www.openssl.org to install the latest version of OpenSSL")
+endif()
 
 include_directories(.)
 include_directories( ${Boost_INCLUDE_DIR} )
-if(OPENSSL_FOUND)
-    include_directories(SYSTEM ${OPENSSL_INCLUDE_DIR})
-
-endif()
+include_directories(SYSTEM ${OPENSSL_INCLUDE_DIR})
 
 # This is temporary
 set(CMAKE_BUILD_TYPE Debug)
@@ -56,19 +57,15 @@ add_executable(ring-rest ${EXE})
 # Link the librairies to the executable
 target_link_libraries(ring-rest ${Boost_LIBRARIES})
 target_link_libraries(ring-rest ${CMAKE_THREAD_LIBS_INIT})
-if(OPENSSL_FOUND)
-    target_link_libraries(ring-rest ${OPENSSL_LIBRARIES})
-endif()
+target_link_libraries(ring-rest ${OPENSSL_LIBRARIES})
 
 # The libraries
 set(LIB ${SOURCES_LIB} ${HEADERS})
 
 add_library(ring-rest-static EXCLUDE_FROM_ALL STATIC ${LIB})
-SET_TARGET_PROPERTIES(ring-rest-static PROPERTIES OUTPUT_NAME ring-rest CLEAN_DIRECT_OUTPUT 1)
+set_target_properties(ring-rest-static PROPERTIES OUTPUT_NAME ring-rest CLEAN_DIRECT_OUTPUT 1)
 
 add_library(ring-rest-shared EXCLUDE_FROM_ALL SHARED ${LIB})
-SET_TARGET_PROPERTIES(ring-rest-shared PROPERTIES OUTPUT_NAME ring-rest CLEAN_DIRECT_OUTPUT 1)
-
-
+set_target_properties(ring-rest-shared PROPERTIES OUTPUT_NAME ring-rest CLEAN_DIRECT_OUTPUT 1)
 
 enable_testing()
