@@ -110,4 +110,7 @@ TODO Move Cpp/ring-rest -> Cpp/Bootstrap/ring-rest/
 Library | C / C++ | GPLv3 Compatible | Cross-platform | Complexity | Size | Latest Release 
 ---|---|---|---|---|---|---
 [Restbed](https://github.com/Corvusoft/restbed) | C++ | Yes | Yes | Average | Large | 4.0 : 28-05-2016 
-
+[Crow](https://github.com/ipkn/crow) | C++ | Yes | Yes | Easy | Short | Last commit in march
+[cpprestsdk](https://github.com/Microsoft/cpprestsdk) | C++ | Yes | Hard | Huge | 2.8.0 : 25-02-2016
+[cpp-netlib](https://github.com/cpp-netlib/cpp-netlib) | C++ | Yes | Yes | Medium | Medium | 0.12.0 : 30-03-2016
+[dyad](https://github.com/rxi/dyad) | C | Yes | Yes | Easy | Light | Last commit 9 month ago
