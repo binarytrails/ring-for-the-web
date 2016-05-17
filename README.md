@@ -8,6 +8,8 @@ Ring-web uses the Ring daemon ([dring](https://gerrit-ring.savoirfairelinux.com/
 
 2. Now, we are oriented into creating a RESTful API closely bound to the daemon to allow simple communication.
 
+    1. Read [Why choosing Go?](https://github.com/sevaivanov/ring-web-demos#go-1) and track the [Go server progress](https://github.com/sevaivanov/ring-web-demos/blob/master/Server/Go/README.md#state-of-things).
+
 ## 1. Control delegated to the browser
 
 This approach is user-friendly because it allows anyone to install it directly as an Add-on that can be used to control the daemon. For this there are a few options: 
@@ -66,32 +68,11 @@ See [example](Server/Nodejs/ring-demo/).
 
 #### Go
 
-The Pros of this option are that it is fast to implement (has a build-in http server), easy to maintain, scalable and supports concurrency.
+The PROs of this option are that it is fast to implement (has a build-in http server), easy to maintain, scalable and supports concurrency.
 
-The main part of the work would be to create mapping from C++ uncommon Objects that are not supported by built-in SWIG support.
+The main part of the work would be to create mapping from C++ uncommon Objects that are not supported by built-in SWIG support. Although, there is an [excellent example](https://github.com/savoirfairelinux/ring-client-android/blob/master/ring-android/app/src/main/jni/jni_interface.i) of how this can be done in ring-client-android. 
 
-The major con would be managing [std::shared_ptr](http://en.cppreference.com/w/cpp/memory/shared_ptr) from Go. 
-
-A signal is defined as follows:
-
-    using SignalHandlerMap = std::map<std::string, std::shared_ptr<DRing::CallbackWrapperBase>>;
-
-Here is an example of how the call are registred in the daemon using signals. 
-
-    void registerCallHandlers(const std::map<std::string,
-                         std::shared_ptr<CallbackWrapperBase>>& handlers)
-    {
-        auto& handlers_ = ring::getSignalHandlers();
-        for (auto& item : handlers) {
-            auto iter = handlers_.find(item.first);
-            if (iter == handlers_.end()) {
-                RING_ERR("Signal %s not supported", item.first.c_str());
-                continue;
-            }
-
-            iter->second = std::move(item.second);
-        }
-    }
+The major CON would be to define the interaction with the daemon to provide a Go Callback function.
 
 Go supports pointers but it provides automatic garbage collection of allocated memory. Therefore, to avoid memory leaks there should be a careful destruction of each shared pointer before the Go garbage collector does its duties.
 
