@@ -10,8 +10,7 @@ class Daemon
         Daemon();
         ~Daemon();
 
-        std::string echo();
-        void echo(std::vector<std::string> *results);
+        void echo(std::string message);
 };
 
 #endif

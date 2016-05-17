@@ -4,13 +4,8 @@ Daemon::Daemon(){}
 
 Daemon::~Daemon(){}
 
-std::string Daemon::echo()
+void Daemon::echo(std::string message)
 {
-    return "Echo from C++";
-}
-
-void Daemon::echo(std::vector<std::string> *results)
-{
-    results->push_back("Pushed back");
+    std::cout << "C++: " << message << std::endl;
 }
 
