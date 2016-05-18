@@ -66,6 +66,12 @@ See [example](Server/Nodejs/ring-demo/).
 
 ### Delegating control to the Daemon using shared library
 
+#### Python
+
+It has mature [API](https://docs.python.org/3.5/c-api/index.html), very good [documentation](https://docs.python.org/2/extending/embedding.html) and large community.
+
+Follow the [WIP](Server/Python/).
+
 #### Go
 
 The PROs of this option are that it is fast to implement (has a build-in http server), easy to maintain, scalable and supports concurrency.
