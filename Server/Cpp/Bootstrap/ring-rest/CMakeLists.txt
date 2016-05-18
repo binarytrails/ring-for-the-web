@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.8.8)
+cmake_minimum_required (VERSION 3.0.0)
 project (ring-rest C CXX)
 
 # Set the project's version
@@ -50,14 +50,25 @@ include_directories(SYSTEM ${OPENSSL_INCLUDE_DIR})
 # This is temporary
 set(CMAKE_BUILD_TYPE Debug)
 
-# The executable for test
+# HTTP test executable
 set(EXE ${SOURCES_EXE} ${HEADERS})
-add_executable(ring-rest ${EXE})
+add_executable(ring-http ${EXE})
 
 # Link the librairies to the executable
-target_link_libraries(ring-rest ${Boost_LIBRARIES})
-target_link_libraries(ring-rest ${CMAKE_THREAD_LIBS_INIT})
-target_link_libraries(ring-rest ${OPENSSL_LIBRARIES})
+target_link_libraries(ring-http ${Boost_LIBRARIES})
+target_link_libraries(ring-http ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(ring-http ${OPENSSL_LIBRARIES})
+
+# HTTPS test executable
+#add_executable(ring-https ${EXE})
+
+# Link the librairies to the executable
+#target_link_libraries(ring-https ${Boost_LIBRARIES})
+#target_link_libraries(ring-https ${CMAKE_THREAD_LIBS_INIT})
+#target_link_libraries(ring-https ${OPENSSL_LIBRARIES})
+
+# Add the -DHTTPS define to the target
+#set_target_properties(ring-https PROPERTIES COMPILE_FLAGS "-DHTTPS ${CMAKE_CXX_FLAGS}")
 
 # The libraries
 set(LIB ${SOURCES_LIB} ${HEADERS})

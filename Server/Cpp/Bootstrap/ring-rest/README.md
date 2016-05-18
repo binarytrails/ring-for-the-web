@@ -7,7 +7,8 @@ Also it is named Muffin.
 
 ## Dependancies
 
-Boost 1.60
+[Boost 1.60](http://www.boost.org)
+[OpenSSL](https://www.openssl.org) to use the HTTPS socket
 
 ## Build
 

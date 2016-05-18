@@ -43,11 +43,25 @@ int main(int argc, char* argv[])
         // Server code right here, the other stuff is for boost::program_options
         BOOST_LOG_TRIVIAL(info) << "Initializing";
 
-        // Display the parameters
-		BOOST_LOG_TRIVIAL(info) << "Running on port " << port;
 
-        // Creating the server with a HTTP socket
+#ifdef HTTPS
+        // Display the parameters
+		BOOST_LOG_TRIVIAL(info) << "HTTPS server running on port " << port;
+        
+		// Creating the server with a HTTP socket
+        Muffin::Server<Muffin::HTTPS> server(port);
+#else
+        // Display the parameters
+		BOOST_LOG_TRIVIAL(info) << "HTTP server running on port " << port;
+        
+		// Creating the server with a HTTP socket
         Muffin::Server<Muffin::HTTP> server(port);
+#endif
+
+		// Adding the routes to the server
+		server.addRoute("/patates", [](){
+			return "carottes";
+		});
 
         // Run the server
         server.run();

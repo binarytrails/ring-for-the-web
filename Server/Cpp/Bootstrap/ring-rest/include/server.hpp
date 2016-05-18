@@ -13,6 +13,7 @@
 
 #include "manager.hpp"
 #include "connection.hpp"
+#include "router.hpp"
 
 namespace asio = boost::asio;
 
@@ -28,7 +29,7 @@ class Server
 	public:
 
 		Server(unsigned short port) :
-			port_(port), ios_(), manager_(),
+			port_(port), router_(), ios_(), manager_(),
 			acceptor_(ios_, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), port_))
 		{
 			accept_();
@@ -46,6 +47,11 @@ class Server
 				BOOST_LOG_TRIVIAL(debug) << "Launching main io_service";
 			#endif
 			ios_.run();
+		}
+
+		void addRoute(std::string path, std::function<std::string()> func)
+		{
+			router_.addRoute(path, func);
 		}
 
 	private:
@@ -86,6 +92,7 @@ class Server
 		asio::io_service ios_;	
 		asio::ip::tcp::acceptor acceptor_;
 		Manager<T> manager_;
+		Router router_;
 };
 
 } // namespace Muffin
