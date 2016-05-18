@@ -11,6 +11,7 @@ class Daemon
         ~Daemon();
 
         void echo(std::string message);
+        void getContacts(std::string ring_id, std::vector<std::string>* contacts);
 };
 
 #endif
