@@ -6,6 +6,40 @@
 
 [Syntax standards in comparison to Java](https://www.nada.kth.se/~snilsson/go_for_java_programmers/#Syntax)
 
+## State of things
+
+### Implemented
+
+The two possible ways to implement the RESTful API using an HTTP Server are done.
+
+1. In the *wrapper/* mode, the server handles the daemon.
+2. In *dynamic-lib/*, the c++ daemon uses the server as a shared library.
+3. In both modes, [Mux](https://github.com/gorilla/mux) to handle the routing which is [GPLv3 compatible](https://github.com/gorilla/mux/issues/164).
+
+### Work in progress
+
+1. I'm looking for a way to specify to *cgo* that is handled during a *go build* different [flags](https://golang.org/cmd/cgo/) to change the project architecture from having everything (*.h, .cpp, .swigcxx*) in one directory to instead have *.h -> includes/*, *.cpp -> /src/*, etc. Likewise, this options should be also passed to built-in SWIG. Otherwise, I might have to analyse the compiling under the hood with *go build -x* and create a Makefile to automate our homemade build. If this is achieved, I will be able to start interacting with the real daemon *dring*.
+
+	**Update:** After looking at the [Go build tool source code](https://github.com/golang/go/blob/master/src/go/build/build.go#L343) this should be possible but according to #go-nuts freenode IRC channel: defining it should not be possible.
+	
+		// A Package describes the Go package found in a directory.
+		type Package struct {
+			Dir           string   // directory containing package sources
+			Name          string   // package name
+			...
+			// Source files
+			GoFiles        []string // .go source files (excluding CgoFiles, TestGoFiles, XTestGoFiles)
+			CgoFiles       []string // .go source files that import "C"
+			CFiles         []string // .c source files
+			CXXFiles       []string // .cc, .cpp and .cxx source files
+			HFiles         []string // .h, .hh, .hpp and .hxx source files
+			SFiles         []string // .s source files
+			SwigFiles      []string // .swig files
+			SwigCXXFiles   []string // .swigcxx files
+			...
+
+2. Provide a [callback](https://github.com/swig/swig/tree/master/Examples/java/callback) in *dynamic-lib/* to notify the server if the registered signals have changed. To implement the callback I need to be able to separate the C++ sources files. Otherwise, there is interdependency issue during the server build with an *import "../daemon"* because it needs the libserver.so that is not yet generated. Thus, this is related to **1**. Otherwise, they could be build manually.
+
 ## Commands
 
     go run server.go
