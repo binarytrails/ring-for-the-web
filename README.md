@@ -106,3 +106,7 @@ The release 3.5 and the most recent one 4.0 have a dependency *asio* that needs 
 
     error: ‘::SSLv3_server_method’ has not been declared
 
+###### Crow
+
+It's a C++ [Header-only](https://en.wikipedia.org/wiki/Header-only) Microframework for Web, inspired by Python Flask. See the [debate](https://news.ycombinator.com/item?id=8002604) on its usability / performance.
+
