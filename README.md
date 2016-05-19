@@ -88,7 +88,7 @@ The Pro is that is it directly compatible with C++
 
 ##### Writing from scratch using Bootstrap
 
-TODO Move Cpp/ring-rest -> Cpp/Bootstrap/ring-rest/
+Follow the [Work in Progress](Server/Cpp/Bootstrap/).
 
 ##### Using existing libraries
 
