@@ -68,9 +68,7 @@ See [example](Server/Nodejs/ring-demo/).
 
 #### Python
 
-It has mature [API](https://docs.python.org/3.5/c-api/index.html), very good [documentation](https://docs.python.org/2/extending/embedding.html) and large community.
-
-Follow the [WIP](Server/Python/).
+Follow the [Work in Progress](Server/Python/).
 
 #### Go
 
