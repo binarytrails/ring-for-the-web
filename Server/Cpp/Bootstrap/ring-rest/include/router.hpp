@@ -15,8 +15,8 @@ class Router
 		
 		void addRoute(std::string path, std::function<std::string()> func);
 
+		static std::unordered_map<std::string, std::function<std::string()>> routes;
 	private:
-		static std::unordered_map<std::string, std::function<std::string()>> routes_;
 };
 
 } // namespace Muffin

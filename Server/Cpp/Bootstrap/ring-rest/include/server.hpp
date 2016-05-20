@@ -32,6 +32,10 @@ class Server
 			port_(port), router_(), ios_(), manager_(),
 			acceptor_(ios_, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), port_))
 		{
+			// Default route, just in case		
+			addRoute("/", [](){
+				return "";
+			});
 			accept_();
 		}
 
@@ -43,9 +47,6 @@ class Server
 		void run()
 		{
 			// Run the main process	
-			#if DEBUG
-				BOOST_LOG_TRIVIAL(debug) << "Launching main io_service";
-			#endif
 			ios_.run();
 		}
 

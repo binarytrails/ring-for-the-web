@@ -62,6 +62,10 @@ int main(int argc, char* argv[])
 		server.addRoute("/patates", [](){
 			return "carottes";
 		});
+		
+		server.addRoute("/id", [](){
+			return "this is supposed to be a ringID";
+		});
 
         // Run the server
         server.run();

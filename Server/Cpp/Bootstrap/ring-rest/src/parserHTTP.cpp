@@ -2,6 +2,10 @@
 
 #include <iostream>
 
+
+namespace Muffin
+{
+
 json
 ParserHTTP::parse(std::string& request)
 {
@@ -9,9 +13,12 @@ ParserHTTP::parse(std::string& request)
 
 	// Slice the request in lines
 	std::vector<std::string> tokens = tokenize_(request, '\n');
+	// Cleaning the end of the request
 	tokens.pop_back();
-
+	tokens.pop_back();
+	
 	// First line is always [METHODE] /path [HTTP VERSION]
+	tokens[0].pop_back();
 	std::vector<std::string> head = tokenize_(tokens[0], ' ');
 
 	if(!isMethod_(head[0]))
@@ -26,6 +33,8 @@ ParserHTTP::parse(std::string& request)
 	
 	for(auto &s: tokens)
 	{
+		// Cleaning the /r 
+		s.pop_back();
 		if(isHost_(s))
 		{
 			std::vector<std::string> addr = tokenize_(s, ' ');
@@ -33,7 +42,6 @@ ParserHTTP::parse(std::string& request)
 		}
 		else if(containsAccept_(s))
 		{
-			std::cout << s << std::endl;
 			std::vector<std::string> accept = tokenize_(s, ':');
 			std::vector<std::string> list = tokenize_(accept[1], ',');
 
@@ -47,8 +55,26 @@ ParserHTTP::parse(std::string& request)
 		}
 		else 
 		{
-			std::vector<std::string> other = tokenize_(s, ':');
-			ret[other[0]] = other[1].erase(0, 1);
+			std::vector<std::string> line = tokenize_(s, ':');
+			auto key = *line.begin();
+			line.erase(line.begin());
+		
+			if(key != "User-Agent")
+			{
+				std::vector<std::string> list = tokenize_(line[0], ',');
+				for(auto& it : list)
+				{						
+					if(it.front() == ' ')
+						it.erase(0, 1);
+
+				}
+				(list.size() == 1 ? ret[key] = list[0] : ret[key] = list);
+			}
+			else
+			{
+				ret[key] = line[0];
+			}
+			
 		}
 	}
 	
@@ -87,4 +113,7 @@ inline bool
 ParserHTTP::containsAccept_(const std::string& a)
 {
 	return a.substr(0, 6) == "Accept";
-}	
+}
+
+} // namespace Muffin
+	

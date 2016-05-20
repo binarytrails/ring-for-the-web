@@ -50,6 +50,4 @@ sudo make install # not implemented yet
 Options:
   -h [ --help ]             Print help messages
   -p [ --port ] arg (=8080) Server's port. Default is 8080
-  -t [ --threads ] arg (=4) Number of threads used by the server. Default is
-                            maximum usable
 ```
