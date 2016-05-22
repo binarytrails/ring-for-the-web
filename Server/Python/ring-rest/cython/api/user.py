@@ -1,11 +1,20 @@
-from bottle import request, get
+from bottle import request, response, get
+import cgi, json
 
-@get('/user/')
+# Routes
+
+user = '/user/'
+userAction = '/user/<userId>/<action>/'
+
+# Controllers
+
+@get(user)
 def hello():
-    return 'Yes you are! Ask an action to <i>/user/userId/action/</i>'
+    return ''.join(['Ask an action to <i>', cgi.escape(userAction), '</i>'])
 
-@get('/user/<userId>/<action>/')
+@get(userAction)
 def user(userId, action):
-    response = "Performing " + action + " for " + userId + "."
-    return response
+    #response.status = 400  # example
+    response.headers['Content-Type'] = 'application/json'
+    return json.dumps({userId: ' '.join([action, 'result'])})
 
