@@ -7,7 +7,7 @@ int main()
 
     Py_Initialize();
 
-    PyObject* serverModule = PyImport_ImportModule("bottle_server");
+    PyObject* serverModule = PyImport_ImportModule("server");
     assert(serverModule != NULL);
 
     PyObject* startServerFunc = PyObject_GetAttrString(serverModule, "startServer");
