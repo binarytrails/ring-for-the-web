@@ -1,3 +1,4 @@
 *.o
 *.swp
+ENV/
 Server/Cpp/Bootstrap/ring-rest/build

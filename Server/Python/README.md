@@ -53,7 +53,7 @@ The other options may be implemented later. Here is an interesting article: [Cyt
 ## Work in progress
 
 1. ~~Implement examples of RESTful servers~~
-2. Integrate to the Ring Daemon
+2. [Integrate to the Ring Daemon](https://github.com/sevaivanov/ring-daemon/tree/rest-py)
 
 ## Getting started
 
@@ -73,5 +73,12 @@ I tried using the most recent [Python 3 API](https://docs.python.org/3.5/c-api/i
     
     # Using pkg-config on Arch Linux
     gcc $(pkg-config --cflags --libs python2) main.c -o main    # C
-    gcc $(pkg-config --libs python2) main.cpp -o main           # C++
+    g++ $(pkg-config --libs python2) main.cpp -o main           # C++
+
+
+@todo user setup.py
+
+import distutils.sysconfig
+distutils.sysconfig.get_config_var('LIBS')
+distutils.sysconfig.get_config_var('SYSLIBS')
 
