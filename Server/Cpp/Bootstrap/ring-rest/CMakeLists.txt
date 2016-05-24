@@ -25,6 +25,7 @@ endif()
 
 include_directories(AFTER include)
 
+
 # Fetch the files
 file(GLOB_RECURSE SOURCES_EXE src/*.cpp)
 file(GLOB_RECURSE HEADERS include/*.hpp)
@@ -53,6 +54,7 @@ endif()
 include_directories(.)
 include_directories( ${Boost_INCLUDE_DIR} )
 include_directories(SYSTEM ${OPENSSL_INCLUDE_DIR})
+include_directories(${ring_INCLUDE_DIRS})
 
 # This is temporary
 set(CMAKE_BUILD_TYPE Debug)
@@ -62,9 +64,12 @@ set(EXE ${SOURCES_EXE} ${HEADERS})
 add_executable(ring-http ${EXE})
 
 # Link the librairies to the executable
-target_link_libraries(ring-http ${Boost_LIBRARIES})
-target_link_libraries(ring-http ${CMAKE_THREAD_LIBS_INIT})
-target_link_libraries(ring-http ${OPENSSL_LIBRARIES})
+target_link_libraries(ring-http 
+	${Boost_LIBRARIES}
+	${CMAKE_THREAD_LIBS_INIT}
+	${OPENSSL_LIBRARIES}
+	${ring_BIN} 
+)
 
 # HTTPS test executable
 #add_executable(ring-https ${EXE})
