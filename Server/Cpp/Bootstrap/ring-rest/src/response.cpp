@@ -24,7 +24,7 @@ Response::generate(json& req)
 			std::string content = search->second();
 			std::string type = "Content-Type: text/html\r\n";
 			std::string length = "Content-Length: " + std::to_string(content.size()) + "\r\n";
-			res = h + t + s + length + type + "\n" + content + "\r\n"; 
+			res = h + t + s + length + type + "\r\n" + content + "\r\n"; 
 		}
 		else {
 			res = statusCodes[404];	
@@ -45,8 +45,17 @@ Response::generate(json& req)
 std::string
 Response::daytime_()
 {
-	std::time_t now = std::time(0);
-  	return std::ctime(&now);
+	time_t rawtime;
+	struct tm * timeinfo;
+	char buffer[80];
+
+	time (&rawtime);
+	timeinfo = localtime(&rawtime);
+
+	strftime(buffer,80,"%a %b %d %H:%M:%S %Y",timeinfo);
+	std::string time(buffer);
+
+  	return time;
 }
 
 } // namespace Muffin

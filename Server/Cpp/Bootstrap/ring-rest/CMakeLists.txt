@@ -33,14 +33,21 @@ set(SOURCES_LIB ${SOURCES_EXE})
 # Remove the main.cpp for the library targets
 list(REMOVE_ITEM SOURCES_LIB ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
 
+# Local cmake for ring
+set(LOCAL_CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${LOCAL_CMAKE_MODULE_PATH})
+
 # Find the needed packages
 find_package(Boost 1.60 REQUIRED COMPONENTS system program_options log)
 find_package(OpenSSL)
+find_package(Ring REQUIRED)
 
 if(NOT Boost_FOUND)
 	message(FATAL_ERROR "Boost not found, please go to http://www.boost.org to install the latest version of Boost")
 elseif(NOT OPENSSL_FOUND)
 	message(FATAL_ERROR "OpenSSL not found, please go to https://www.openssl.org to install the latest version of OpenSSL")
+elseif(NOT RING_FOUND)
+	message(FATAL_ERROR "Ring package not found")
 endif()
 
 include_directories(.)
