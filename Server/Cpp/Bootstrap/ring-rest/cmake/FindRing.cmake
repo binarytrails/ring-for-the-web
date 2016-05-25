@@ -5,11 +5,11 @@
 SET(RING_FOUND true)
 
 IF(EXISTS ${CMAKE_INSTALL_PREFIX}/include/dring/dring.h)
-   SET(ring_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include/dring)
+   SET(RING_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include/dring)
 ELSEIF(EXISTS ${RING_INCLUDE_DIR}/dring.h)
-   SET(ring_INCLUDE_DIRS ${RING_INCLUDE_DIR})
+   SET(RING_INCLUDE_DIRS ${RING_INCLUDE_DIR})
 ELSEIF(EXISTS ${RING_BUILD_DIR}/dring/dring.h)
-   SET(ring_INCLUDE_DIRS ${RING_BUILD_DIR}/dring)
+   SET(RING_INCLUDE_DIRS ${RING_BUILD_DIR}/dring)
 ELSE()
    MESSAGE("Daemon header not found!
    Add -DRING_BUILD_DIR or -DCMAKE_INSTALL_PREFIX")
@@ -18,7 +18,7 @@ ENDIF()
 
 SET(CMAKE_FIND_LIBRARY_SUFFIXES ".dylib;.so;.dll")
 
-FIND_LIBRARY(ring_BIN NAMES ring
+FIND_LIBRARY(RING_LIBRAIRIES NAMES ring
    PATHS ${RING_BUILD_DIR}/.libs
    PATHS ${CMAKE_INSTALL_PREFIX}/lib
    PATHS ${CMAKE_INSTALL_PREFIX}/libexec
@@ -26,10 +26,10 @@ FIND_LIBRARY(ring_BIN NAMES ring
 )
 
 # Try a static version too
-IF(${ring_BIN} MATCHES "")
+IF(${RING_LIBRAIRIES} MATCHES "")
    SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a;.lib")
 
-   FIND_LIBRARY(ring_BIN NAMES ring
+   FIND_LIBRARY(RING_LIBRAIRIES NAMES ring
       PATHS ${RING_BUILD_DIR}/.libs
       PATHS ${CMAKE_INSTALL_PREFIX}/lib
       PATHS ${CMAKE_INSTALL_PREFIX}/libexec
@@ -41,5 +41,5 @@ ENDIF()
 
 ENDIF()
 
-MESSAGE("Ring daemon header is in " ${ring_INCLUDE_DIRS})
-MESSAGE("Ring library path is " ${ring_BIN})
+MESSAGE("Ring daemon header is in " ${RING_INCLUDE_DIRS})
+MESSAGE("Ring library path is " ${RING_LIBRAIRIES})
