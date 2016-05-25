@@ -44,6 +44,7 @@ FIND_PACKAGE(Ring REQUIRED)
 # Enable some useful warnings
 ADD_DEFINITIONS(
 	-std=c++11
+	-fPIC
 	-Wall
 	-Wextra
 	#-Wmissing-declarations
@@ -59,8 +60,8 @@ ADD_DEFINITIONS(
 	#-Wundef
 	#-Wmissing-format-attribute
 	-Wno-reorder
-	-Wunused
-	-Wuninitialized
+	#-Wunused
+	#-Wuninitialized
 	#-Woverloaded-virtual
 	#-Wunused-value
 	#-pedantic
@@ -91,14 +92,14 @@ SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG -O3")
 IF (CMAKE_COMPILER_IS_GNUCC)
    IF (GCC_VERSION VERSION_GREATER 4.9 OR GCC_VERSION VERSION_EQUAL 4.9)
       ADD_DEFINITIONS(
-         -Wunused-but-set-parameter
-         -Wconditionally-supported
+         #-Wunused-but-set-parameter
+         #-Wconditionally-supported
          #-Wsuggest-attribute=const
-         -Wno-cpp
+         #-Wno-cpp
          #-Wdouble-promotion
-         -Wdate-time
-         -Wdelete-incomplete
-         -Wfloat-conversion
+         #-Wdate-time
+         #-Wdelete-incomplete
+         #-Wfloat-conversion
       )
    ENDIF()
 
@@ -107,24 +108,24 @@ IF (CMAKE_COMPILER_IS_GNUCC)
          #-Wsuggest-override
          #-Wsuggest-final-types
          #-Wsuggest-final-methods
-         -Wbool-compare
-         -Wformat-signedness
-         -Wlogical-not-parentheses
-         -Wnormalized
-         -Wshift-count-negative
-         -Wshift-count-overflow
-         -Wsized-deallocation
-         -Wsizeof-array-argument
+         #-Wbool-compare
+         #-Wformat-signedness
+         #-Wlogical-not-parentheses
+         #-Wnormalized
+         #-Wshift-count-negative
+         #-Wshift-count-overflow
+         #-Wsized-deallocation
+         #-Wsizeof-array-argument
       )
    ENDIF()
 
    IF (GCC_VERSION VERSION_GREATER 6.0 OR GCC_VERSION VERSION_EQUAL 6.0)
       ADD_DEFINITIONS(
-         -Wnull-dereference
-         -Wshift-negative-value
-         -Wshift-overflow
-         -Wduplicated-cond
-         -Wmisleading-indentation
+         #-Wnull-dereference
+         #-Wshift-negative-value
+         #-Wshift-overflow
+         #-Wduplicated-cond
+         #-Wmisleading-indentation
       )
    ENDIF()
 ENDIF()
@@ -133,14 +134,14 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	ADD_DEFINITIONS(
 		#-Wno-c++98-compat
 		#-Wno-c++98-compat-pedantic
-		-Wno-unknown-pragmas
-		-Wno-documentation-unknown-command
-		-Wno-padded
-		-Wno-old-style-cast
-		-Wno-sign-conversion
-		-Wno-exit-time-destructors
-		-Wno-global-constructors
-		-Wno-shorten-64-to-32
+		#-Wno-unknown-pragmas
+		#-Wno-documentation-unknown-command
+		#-Wno-padded
+		#-Wno-old-style-cast
+		#-Wno-sign-conversion
+		#-Wno-exit-time-destructors
+		#-Wno-global-constructors
+		#-Wno-shorten-64-to-32
 		#-Weverything
 	)
 endif()
@@ -168,14 +169,16 @@ INCLUDE_DIRECTORIES(AFTER include)
 FILE(GLOB_RECURSE SOURCES src/*.cpp)
 FILE(GLOB_RECURSE HEADERS include/*.hpp)
 SET(FILES ${SOURCES} ${HEADERS})
+message(${CMAKE_CURRENT_SOURCE_DIR})
+message(${CMAKE_CURRENT_BINARY_DIR})
 
 # HTTP test executabe
 ADD_EXECUTABLE(ring-http ${FILES})
 
 TARGET_LINK_LIBRARIES(ring-http
+	-fPIC
 	${Boost_LIBRARIES}
 	${CMAKE_THREAD_LIBS_INIT}
-	${OPENSSL_LIBRARIES}
 	${RING_LIBRAIRIES} 
 )
 
