@@ -9,12 +9,16 @@ Server/Cpp/Bootstrap/ring-rest/config.log
 Server/Cpp/Bootstrap/ring-rest/config.status
 Server/Cpp/Bootstrap/ring-rest/config.sub
 Server/Cpp/Bootstrap/ring-rest/configure
-Server/Cpp/Bootstrap/ring-rest/decomp
+Server/Cpp/Bootstrap/ring-rest/depcomp
 Server/Cpp/Bootstrap/ring-rest/install-sh
 Server/Cpp/Bootstrap/ring-rest/libtool
 Server/Cpp/Bootstrap/ring-rest/Makefile
 Server/Cpp/Bootstrap/ring-rest/Makefile.in
 Server/Cpp/Bootstrap/ring-rest/missing
+Server/Cpp/Bootstrap/ring-rest/ltmain.sh
 Server/Cpp/Bootstrap/ring-rest/src/ring_http
+Server/Cpp/Bootstrap/ring-rest/src/.deps/
+Server/Cpp/Bootstrap/ring-rest/src/Makefile
+Server/Cpp/Bootstrap/ring-rest/src/Makefile.in
 
 
