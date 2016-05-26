@@ -12,42 +12,29 @@ Also it is named Muffin.
 
 ## Build
 
-There is 3 different build possible : the executable, the shared library and the static library
-You can use ```-DCMAKE_BUILD_TYPE=Debug``` to have all the debug output.
-
-### Executable ring-rest
-The executable is the default target
+### Executable ring-http
+While waiting for the ring-daemon plugin structure, I'm working on an executable, packaging the server and the daemon.
+I'm using automake to compile it.
 ```sh
-mkdir -p build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
+./autogen.sh
+./configure
 make
-./ring-rest
+./src/ring_http
 ```
 
 ### Static library
-To build libring-rest.a and install it
-```sh
-mkdir -p build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-make ring-rest-static
-sudo make install # not implemented yet
-```
+Not implemented yet
 
 ### Shared library
-To build libring-rest.so and install it
-```sh
-mkdir -p build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-make ring-rest-shared
-sudo make install # not implemented yet
-```
+Not implemented yet
 
 ## Options
 ```
 Options:
-  -h [ --help ]             Print help messages
-  -p [ --port ] arg (=8080) Server's port. Default is 8080
+  -h [ --help ]         Print help messages
+  --port arg (=8080)    Server's port. Default is 8080
+  -c [ --console ]      Log in console (instead of syslog)
+  -d [ --debug ]        Debug mode (more verbose)
+  -p [ --persistent ]   Stay alive after client quits
+  --auto-answer         Force automatic answer to incoming calls
 ```

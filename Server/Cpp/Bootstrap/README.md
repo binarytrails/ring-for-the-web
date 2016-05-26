@@ -5,13 +5,7 @@
 The main purpose of this project is to create a simple and fast HTTP server, C++11 compatible, who will handle the talk between a web interface and the [ring-daemon](https://github.com/savoirfairelinux/ring-daemon). The server is written with [Boost.asio](http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio.html) with asynchronous calls.
 
 ## How to run it
-```sh
-mkdir -p build
-cd build
-cmake ..
-make
-./ring-http
-```
+Go see the README.md in the [ring-rest](ring-rest/) folder.
 
 Then, go on your favorite web browser, and go to http://127.0.0.1:8080/, and you should see something.
 In this example, you can go to http://127.0.0.1:8080/id to get a ringID, and http://127.0.0.1:8080/patates to have a nice vegetable
@@ -27,11 +21,13 @@ Up to this date, here's what we got :
  - Routing for the queries
  - Build a correct response to the request
  - Handling GET request
+ - Compiling the server with the daemon 
 
 ## Working on it
- - Handling POST request
+ - Send a ringID through GET Response
+ - Fix HTTP header Response
 
 ## Todo List
- - Integrate the daemon the server
+ - Handling POST request
 
 
