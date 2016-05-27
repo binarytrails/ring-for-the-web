@@ -1,3 +1,4 @@
+// any runnable package must be named main
 package main
 
 import (

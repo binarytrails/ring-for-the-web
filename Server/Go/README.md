@@ -38,7 +38,7 @@ The two possible ways to implement the RESTful API using an HTTP Server are done
 			SwigCXXFiles   []string // .swigcxx files
 			...
 
-2. Provide a [callback](https://github.com/swig/swig/tree/master/Examples/java/callback) in *dynamic-lib/* to notify the server if the registered signals have changed. To implement the callback I need to be able to separate the C++ sources files. Otherwise, there is interdependency issue during the server build with an *import "../daemon"* because it needs the libserver.so that is not yet generated. Thus, this is related to **1**. Otherwise, they could be build manually.
+2. Provide a [callback](https://github.com/swig/swig/tree/master/Examples/go/callback) in *dynamic-lib/* to notify the server if the registered signals have changed. To implement the callback I need to be able to separate the C++ sources files. Otherwise, there is interdependency issue during the server build with an *import "../daemon"* because it needs the libserver.so that is not yet generated. Thus, this is related to **1**. Otherwise, they could be build manually.
 
 ## Commands
 

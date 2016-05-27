@@ -1,6 +1,6 @@
 /* Created by "go tool cgo" - DO NOT EDIT. */
 
-/* package _/home/rrt/UserDirs/Workspace/Programming/Github/public/ring-web-demos/Server/Go/dynamic-lib/cpp-server/server */
+/* package _/home/rrt/github/ring-web-demos/Server/Go/dynamic-lib/cpp-server/server */
 
 /* Start of preamble from import "C" comments.  */
 

@@ -1,7 +1,8 @@
 package main
 
+import "C"
+
 import (
-    "C"
     "fmt"
     "log"
     "net/http"
@@ -17,8 +18,8 @@ var serverMessage string = "" +
     "http://127.0.0.1:8080/non_existing/"
 
 //export initServer
-func initServer(message *C.char) *C.char{
-    // @TODO get *Daemon or use its interface
+func initServer(message *C.char, shared_ptr*) *C.char{
+    // @TODO register daemon handlers
     daemonMessage = C.GoString(message)
     return C.CString(serverMessage)
 }
@@ -34,7 +35,8 @@ func startServer(){
 }
 
 func main(){
-    startServer()
+    
+    //startServer()
 }
 
 // Handlers
@@ -51,6 +53,7 @@ func ServerReply(w http.ResponseWriter, request *http.Request) {
 func DaemonEcho(w http.ResponseWriter, request *http.Request) {
     vars := mux.Vars(request)
     echo := vars["daemonEcho"]
+    // call daemon
     fmt.Println("Server:", echo)
 }
 
