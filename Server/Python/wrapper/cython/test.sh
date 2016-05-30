@@ -1,1 +1,1 @@
-make clean; make; python -c 'import daemon_cpp'
+python -c 'import dring'
