@@ -8,6 +8,8 @@ setup(name="dring",
           ["dring.pyx", "cpp/daemon.cpp"],
           language="c++",
           extra_compile_args=["-std=c++11"],
+          libraries=["ring"],
+          include_dirs = ["/usr/include/dring"],
       )),
       cmdclass = {'build_ext' : build_ext}
 )

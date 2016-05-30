@@ -9,3 +9,8 @@ cdef extern from "cpp/daemon.h":
         Daemon() except+
         string callme()
 
+# dring
+
+cdef extern from "dring.h" namespace "DRing":
+    pass
+
