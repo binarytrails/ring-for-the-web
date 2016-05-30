@@ -10,7 +10,8 @@ endif
 
 simple:
 	g++ -o dring.out main.cpp ringrestbed.cpp -std=c++11 \
-		-lrestbed -lcrypto -lpthread -lssl
+		-lrestbed -lcrypto -lpthread -lssl \
+		-I/usr/include/dring #/usr/lib/libring.a
 
 clean:
 	rm -rf *$(LIB_EXT) *.out

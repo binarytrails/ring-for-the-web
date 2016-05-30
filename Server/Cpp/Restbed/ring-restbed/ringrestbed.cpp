@@ -79,7 +79,7 @@ int RingRestbed::initLibrary(int flags)
 
     //auto callM = callManager_.get();
     
-    // FIXME solve error
+    // FIXME autotools for libring.a ?
     //if (!DRing::start())
     //{
     //    return -1;

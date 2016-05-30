@@ -3,14 +3,14 @@
 
 #include <assert.h>
 
-#include <dring/dring.h>
+#include "dring.h"
 
 // Each of those should have a corresponding RingRestbed header file
-#include <dring/callmanager_interface.h>
-#include "dring/configurationmanager_interface.h"
-#include "dring/presencemanager_interface.h"
+#include "callmanager_interface.h"
+#include "configurationmanager_interface.h"
+#include "presencemanager_interface.h"
 #ifdef RING_VIDEO
-#include "dring/videomanager_interface.h"
+#include "videomanager_interface.h"
 #endif
 
 class RingRestbed
