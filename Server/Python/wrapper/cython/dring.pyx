@@ -15,5 +15,5 @@ cdef class Dring:
         self.AUTOANSWER     = cpp.DRING_FLAG_AUTOANSWER
 
         print(self.DEBUG)
-        #cpp.init(self.DEBUG)
+        cpp.init(self.DEBUG)
 
