@@ -1,16 +1,11 @@
-# Relevant comment
-
-cdef extern from "string" namespace "std":
-    cdef cppclass string:
-        char* c_str()
-
-cdef extern from "cpp/daemon.h":
-    cdef cppclass Daemon:
-        Daemon() except+
-        string callme()
-
-# dring
+from libcpp cimport string
+from libcpp cimport bool as boolean
 
 cdef extern from "dring.h" namespace "DRing":
-    pass
+    cdef enum InitFlag:
+        DRING_FLAG_DEBUG       = 1<<0
+        DRING_FLAG_CONSOLE_LOG = 1<<1
+        DRING_FLAG_AUTOANSWER  = 1<<2
+
+    boolean init(InitFlag flags) except+
 

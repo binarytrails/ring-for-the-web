@@ -5,9 +5,10 @@ from Cython.Distutils import build_ext
 setup(name="dring",
       ext_modules = cythonize(Extension(
           "dring",
-          ["dring.pyx", "cpp/daemon.cpp"],
+          ["dring.pyx"],
           language="c++",
-          extra_compile_args=["-std=c++11"],
+          extra_compile_args=["-std=c++11", "-fPIC"],
+          extra_link_args=["-std=c++11"],
           libraries=["ring"],
           include_dirs = ["/usr/include/dring"],
       )),

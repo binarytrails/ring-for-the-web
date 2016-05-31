@@ -1,17 +1,19 @@
-cimport dring_cpp as cpp
+# cython: language_level=3
 
-cdef class Daemon:
-    cdef cpp.Daemon* dring
+cimport dring_cpp as cpp
+from enum import Enum
+
+cdef class Dring:
+    cdef:
+        readonly DEBUG
+        readonly CONSOLE_LOG
+        readonly AUTOANSWER
 
     def __cinit__(self):
-        self.dring = new cpp.Daemon()
+        self.DEBUG          = cpp.DRING_FLAG_DEBUG
+        self.CONSOLE_LOG    = cpp.DRING_FLAG_CONSOLE_LOG
+        self.AUTOANSWER     = cpp.DRING_FLAG_AUTOANSWER
 
-    def __dealloc__(self):
-        del self.dring
+        print(self.DEBUG)
+        #cpp.init(self.DEBUG)
 
-    def callme(self):
-        return self.dring.callme()
-
-# test
-dring = Daemon()
-print(dring.callme())
