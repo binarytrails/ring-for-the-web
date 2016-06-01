@@ -1,4 +1,5 @@
 from libcpp cimport string
+from libcpp.string cimport string
 from libcpp cimport bool as boolean
 
 cdef extern from "dring.h" namespace "DRing":
@@ -7,5 +8,7 @@ cdef extern from "dring.h" namespace "DRing":
         DRING_FLAG_CONSOLE_LOG = 1<<1
         DRING_FLAG_AUTOANSWER  = 1<<2
 
-    boolean init(InitFlag flags) except+
+    boolean init(InitFlag flags)
 
+    boolean start(const string& config_file)
+    boolean start()

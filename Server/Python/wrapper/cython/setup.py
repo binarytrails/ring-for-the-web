@@ -7,11 +7,10 @@ setup(name="dring",
           "dring",
           ["dring.pyx"],
           language="c++",
-          extra_compile_args=["-std=c++11", "-fPIC"],
+          extra_compile_args=["-std=c++11"],
           extra_link_args=["-std=c++11"],
-          #libraries=["ring"],
-          extra_objects=["/usr/lib/libring.a"],
           include_dirs = ["/usr/include/dring"],
+          libraries=["ring"],
       )),
       cmdclass = {'build_ext' : build_ext}
 )

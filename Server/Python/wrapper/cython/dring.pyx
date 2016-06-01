@@ -14,6 +14,9 @@ cdef class Dring:
         self.CONSOLE_LOG    = cpp.DRING_FLAG_CONSOLE_LOG
         self.AUTOANSWER     = cpp.DRING_FLAG_AUTOANSWER
 
-        print(self.DEBUG)
-        cpp.init(self.DEBUG)
+        if(not cpp.init(self.DEBUG)):
+            raise RuntimeError
+
+        if(not cpp.start()):
+            raise RuntimeError
 
