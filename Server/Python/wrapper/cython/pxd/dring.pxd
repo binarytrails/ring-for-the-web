@@ -1,4 +1,3 @@
-from libcpp cimport string
 from libcpp.string cimport string
 from libcpp cimport bool as boolean
 
@@ -12,3 +11,5 @@ cdef extern from "dring.h" namespace "DRing":
 
     boolean start(const string& config_file)
     boolean start()
+
+    const char* version();
