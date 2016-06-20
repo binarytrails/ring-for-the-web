@@ -36,7 +36,7 @@ We tried building an extension. However, it didn't work due to multiple issues, 
 
 > XUL has no formal specification and does not inter-operate with non-Gecko implementations. -- [Wikipedia](https://en.wikipedia.org/wiki/XUL)
 
-Results can be found at: [Add-ons/Extension/XPCOM/](https://github.com/sevaivanov/ring-for-the-web/tree/master/Add-ons/Extension/XPCOM/).
+Results can be found at: [Add-ons/Extensions/XPCOM/](https://github.com/sevaivanov/ring-for-the-web/tree/master/Add-ons/Extensions/XPCOM/).
 
 #### Chrome
 
