@@ -1,10 +1,10 @@
-<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/ring-logo-text.png" style="height:60px;">
+<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/ring-logo-text.png" height="60px">
 
 > Ring is a secure and distributed voice, video and chat communication platform that requires no centralized server and leaves the power of privacy in the hands of the user.
 
 On the technical level the Ring project has many components:<br>
 
-<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/ring-components.jpeg" style="height:400px;">
+<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/ring-components.jpeg" height="400px">
 
 Source: [Technical aspects of Ring](https://ring.cx/en/about/technical).
 
@@ -48,7 +48,7 @@ We stopped researching into the direction of browser plug-ins because their tech
 
 Therefore, we went into a new direction of compiling the Ring-daemon into JavaScript using [Emscripten](https://github.com/kripken/emscripten). It is using Low Level Virtual Machine ([LLVM](https://en.wikipedia.org/wiki/LLVM)) which will generate LLVM bytecode from C/C++ and compile it to JavaScript.
 
-<img src="Resources/Images/emscripten.png" style="height:300px;">
+<img src="Resources/Images/emscripten.png" height="300px">
 
  We were unable to compile all of the Ring-daemon dependencies, especially [GMP Library](https://gmplib.org) due to multiple issues like the [long long type](http://stackoverflow.com/questions/18971732/what-is-the-difference-between-long-long-long-long-int-and-long-long-i) conversions. This solution is rather experimental. Perhaps it will be possible in the near future, but then again it may be difficult to debug the generated code because of the complexity of the Ring-daemon implementation.
 
@@ -68,7 +68,7 @@ Here is the brief and ordered summary of the different languages that I tried. I
 
 #### Node.js
 
-<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/nodejs-logo.png" style="height:100px">
+<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/nodejs-logo.png" height="100px">
 
 > Node.js Addons are dynamically-linked shared objects, written in C or C++, that can be loaded into Node.js using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
@@ -84,7 +84,7 @@ Results can be found at: [Server/Nodejs/](https://github.com/sevaivanov/ring-for
 
 #### Go
 
-<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/go-fiveyears.jpg" style="height:200px">
+<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/go-fiveyears.jpg" height="200px">
 
 Pros of this option: it is fast to implement, it has a build-in HTTP server, it is easy to maintain, it is scalable and it supports concurrency. Also, Go has a tool called [cgo](https://golang.org/cmd/cgo/) which embeds many things plus a compiler. This option is interesting because C / C++ is called directly from Go by directly importing header files that in turn *cgo* will wrap into the *C* library automatically. Also, it has built-in SWIG support. This leads to the question : what is [SWIG](http://swig.org/)?
 
@@ -122,7 +122,7 @@ In this situation, communication is initiated by the client behind the web serve
 
 We decided to get back to the wrapper concept that wouldn't exclude its integration to Ring-daemon's plug-in system in the future.
 
-<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/cython-logo.png" style="height:50px">
+<img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/cython-logo.png" height="50px">
 
 > The Cython programming language is a superset of Python, designed to give C-like performance with code which is mostly written in Python. It is a compiled language that generates CPython extension modules. These extension modules can then be loaded and used by regular Python code using the import statement.
 
