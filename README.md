@@ -1,3 +1,8 @@
+# Introduction
+
+The mission is to adapt the Ring project for the web. The requirements specifies to only use the Ring-daemon which is the core of the Ring defined as the LibRing layer in the schema below. The results of this research are not only specific to the Ring project. In fact, anyone who is trying to adapt a C / C++ project for the web might find this interesting.
+</br></br>
+
 <img src="https://raw.githubusercontent.com/sevaivanov/ring-for-the-web/master/Resources/Images/ring-logo-text.png" height="60px">
 
 > Ring is a secure and distributed voice, video and chat communication platform that requires no centralized server and leaves the power of privacy in the hands of the user.
