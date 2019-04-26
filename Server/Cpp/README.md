@@ -1,3 +1,7 @@
+**Update (2019):**
+
+Multiple changes has been brought up as a new need has appreared at Ring now called [Jami](jami.net) and its network [OpenDHT](https://opendht.net).
+
 # Libraries
 
 HTTP / REST:
@@ -23,11 +27,15 @@ Definitions:
 
 - [Header-only](https://en.wikipedia.org/wiki/Header-only)
 
+# Considerations
+
 ## Restbed
 
 Not compatible for reselling without fees.
 
 ## Crow
+
+Not maintained but boost may be replaced with native async.
 
 Microframework for Web, inspired by Python Flask. See the [debate](https://news.ycombinator.com/item?id=8002604) on its usability / performance.
 
