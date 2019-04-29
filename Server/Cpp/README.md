@@ -14,7 +14,7 @@ Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Ma
 [pistache](https://github.com/oktal/pistache) | C++ | Apache2 | [No win](https://github.com/oktal/pistache/issues/6) | Easy | Huge (1.6M) | Yes | No | REST
 [restino](https://github.com/Stiffstream/restinio) | C++14 | BSD3 | Yes | Average | Huge | Yes | Optional | REST
 [cpp-httplib](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | No | HTTP
-[evpp](https://github.com/Qihoo360/evpp) | C++ | BSD3 | Yes | | | | | high load for TCP/UDP/HTTP
+[evpp](https://github.com/Qihoo360/evpp) | C++ | BSD3 | Yes | Fine | Huge | Yes | Yes | high load for TCP/UDP/HTTP
 [uWebScokets](https://github.com/uNetworking/uWebSockets) | C++17 header-only | Apache2.0 | Seems | Average | Average | Lots | No | http, websockets, js lib
 [oatpp](https://github.com/oatpp/oatpp) | C++ | Apache2.0 | [Todo Win](https://github.com/oatpp/oatpp/issues/2) | Ok | Average | Yes | No | fast web, rest, async
 [facebook/proxygen](https://github.com/facebook/proxygen) | C++ | BSD | Yes | Average | Average | Lots | Yes | Libraries with HTTP server
