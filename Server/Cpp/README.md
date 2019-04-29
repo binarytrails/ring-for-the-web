@@ -6,21 +6,31 @@ Multiple changes has been brought up as a new need has appreared at Ring now cal
 
 HTTP / REST:
 
-Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Maintenance | Boost | Content
----|---|---|---|---|---|---|---|---
-[Restbed](https://github.com/Corvusoft/restbed) | C++ | AGPL | Yes | Average | Large | Yes | No | REST
-[Crow](https://github.com/ipkn/crow) | C++ | BSD3 | Probably | Easy | Header | Not maintained | Yes | REST
-[cpprestsdk/casablanca](https://github.com/Microsoft/cpprestsdk) | C++ | Apache2 | Yes | Hard | Huge (2M) | Yes | Yes | REST
-[pistache](https://github.com/oktal/pistache) | C++ | Apache2 | [No win](https://github.com/oktal/pistache/issues/6) | Easy | Huge (1.6M) | Yes | No | REST
-[restino](https://github.com/Stiffstream/restinio) | C++14 | BSD3 | Yes | Average | Huge | Yes | Optional | REST
-[cpp-httplib](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | No | HTTP
-[evpp](https://github.com/Qihoo360/evpp) | C++ | BSD3 | Yes | Fine | Huge | Yes | Yes | high load for TCP/UDP/HTTP
-[uWebScokets](https://github.com/uNetworking/uWebSockets) | C++17 header-only | Apache2.0 | Seems | Average | Average | Lots | No | http, websockets, js lib
-[oatpp](https://github.com/oatpp/oatpp) | C++ | Apache2.0 | [Todo Win](https://github.com/oatpp/oatpp/issues/2) | Ok | Average | Yes | No | fast web, rest, async
-[facebook/proxygen](https://github.com/facebook/proxygen) | C++ | BSD | Yes | Average | Average | Lots | Yes | Libraries with HTTP server
-[cpr](https://github.com/whoshuu/cpr) | C++11 | MIT | [Maybe](https://github.com/whoshuu/cpr/search?q=windows&type=Issues) | Easy | Average | Yes | No | Spiritual port of Python Requests, Rest, Asynci and more
-[onion](https://github.com/davidmoreno/onion) | C | Apache2.0 & GPLv2 | Seems | Average | Average | Yes | No | Webserver as plugin
-[]() | | | | | | | | 
+Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Maintenance | Content
+---|---|---|---|---|---|---|---
+[Restbed](https://github.com/Corvusoft/restbed) | C++ | AGPL | Yes | Average | Large | Yes | REST
+[pistache](https://github.com/oktal/pistache) | C++ | Apache2 | [No win](https://github.com/oktal/pistache/issues/6) | Easy | Huge (1.6M) | Yes | REST
+[cpp-httplib](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | HTTP
+[uWebScokets](https://github.com/uNetworking/uWebSockets) | C++17 header-only | Apache2.0 | Seems | Average | Average | Lots | http, websockets, js lib
+[oatpp](https://github.com/oatpp/oatpp) | C++ | Apache2.0 | [Todo Win](https://github.com/oatpp/oatpp/issues/2) | Ok | Average | Yes | fast web, rest, async
+[cpr](https://github.com/whoshuu/cpr) | C++11 | MIT | [Maybe](https://github.com/whoshuu/cpr/search?q=windows&type=Issues) | Easy | Average | Yes | Spiritual port of Python Requests, Rest, Asynci and more
+[restino](https://github.com/Stiffstream/restinio) | C++14 | BSD3 | Yes | Average | Huge | Yes | REST
+[]() | | | | | | | 
+
+With boost:
+
+Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Maintenance | Content
+---|---|---|---|---|---|---|---
+[Crow](https://github.com/ipkn/crow) | C++ | BSD3 | Probably | Easy | Header | Not maintained | REST
+[cpprestsdk/casablanca](https://github.com/Microsoft/cpprestsdk) | C++ | Apache2 | Yes | Hard | Huge (2M) | Yes | REST
+[evpp](https://github.com/Qihoo360/evpp) | C++ | BSD3 | Yes | Fine | Huge | Yes | high load for TCP/UDP/HTTP
+[facebook/proxygen](https://github.com/facebook/proxygen) | C++ | BSD | Yes | Average | Average | Lots | Libraries with HTTP server
+
+Not C++ but may fit:
+
+Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Maintenance | Content
+---|---|---|---|---|---|---|---
+[onion](https://github.com/davidmoreno/onion) | C | Apache2.0 & GPLv2 | Seems | Average | Average | Yes | Webserver as plugin
 
 Far from REST but worth mention:
 
