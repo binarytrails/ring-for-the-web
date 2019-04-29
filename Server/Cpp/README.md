@@ -28,9 +28,9 @@ Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Ma
 
 Not C++ but may fit:
 
-Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Maintenance | Content
----|---|---|---|---|---|---|---
-[onion](https://github.com/davidmoreno/onion) | C | Apache2.0 & GPLv2 | Seems | Average | Average | Yes | Webserver as plugin
+Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Maintenance | Session | Content
+---|---|---|---|---|---|---|---|---
+[onion](https://github.com/davidmoreno/onion) | C | Apache2.0 & GPLv2 | Seems | Average | Average | Yes | Yes | Webserver as plugin
 
 Far from REST but worth mention:
 
