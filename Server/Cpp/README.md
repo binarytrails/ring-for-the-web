@@ -10,7 +10,7 @@ Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Ma
 ---|---|---|---|---|---|---|---|---
 [Restbed](https://github.com/Corvusoft/restbed) | C++ | AGPL | Yes | Average | Large | Yes | Yes | REST
 [pistache](https://github.com/oktal/pistache) | C++ | Apache2 | [No win](https://github.com/oktal/pistache/issues/6) | Easy | Huge (1.6M) | Yes | ? | REST
-[cpp-httplib](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | ? | HTTP
+[cpp-httplib](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | No | HTTP
 [uWebScokets](https://github.com/uNetworking/uWebSockets) | C++17 header-only | Apache2.0 | Seems | Average | Average | Lots | ? | http, websockets, js lib
 [oatpp](https://github.com/oatpp/oatpp) | C++ | Apache2.0 | [Todo Win](https://github.com/oatpp/oatpp/issues/2) | Ok | Average | Yes | ? | fast web, rest, async
 [cpr](https://github.com/whoshuu/cpr) | C++11 | MIT | [Maybe](https://github.com/whoshuu/cpr/search?q=windows&type=Issues) | Easy | Average | Yes | [Maybe](https://github.com/whoshuu/cpr/search?q=session&type=Issues) | Spiritual port of Python Requests, Rest, Asynci and more
