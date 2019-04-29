@@ -10,12 +10,17 @@ Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Ma
 ---|---|---|---|---|---|---|---|---
 [~~Restbed~~](https://github.com/Corvusoft/restbed) | C++ | AGPL | Yes | Average | Large | Yes | Yes | REST
 [~~pistache~~](https://github.com/oktal/pistache) | C++ | Apache2 | [No win](https://github.com/oktal/pistache/issues/6) | Easy | Huge (1.6M) | Yes | ? | REST
-[cpr](https://github.com/whoshuu/cpr) | C++11 | MIT | [Maybe](https://github.com/whoshuu/cpr/search?q=windows&type=Issues) | Easy | Average | Yes | Yes [but](https://github.com/whoshuu/cpr/issues/69) | Spiritual port of Python Requests, Rest, Async, libcurl
 [restino](https://github.com/Stiffstream/restinio) | C++14 | BSD3 | Yes | Average | Huge | Yes | Yes with [Async HTTP Pipelining](https://github.com/Stiffstream/restinio/tree/master/dev/test/http_pipelining) | Rest
 [uWebScokets](https://github.com/uNetworking/uWebSockets) | C++17 header-only | Apache2.0 | Seems | Average | Average | Lots | No | http, websockets, js lib
 [oatpp](https://github.com/oatpp/oatpp) | C++ | Apache2.0 | [Todo Win](https://github.com/oatpp/oatpp/issues/2) | Ok | Average | Yes | No | fast web, rest, async
 [cpp-httplib](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | No | HTTP
 []() | | | | | | | | 
+
+Turns out to be w/o a native server but has it all:
+
+Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Maintenance | Session | Content
+---|---|---|---|---|---|---|---|---
+[cpr](https://github.com/whoshuu/cpr) | C++11 | MIT | [Maybe](https://github.com/whoshuu/cpr/search?q=windows&type=Issues) | Easy | Average | Yes | Yes [but](https://github.com/whoshuu/cpr/issues/69) | Async, libcurl, for its server, it uses [mongoose](https://github.com/cesanta/mongoose)
 
 With boost:
 
