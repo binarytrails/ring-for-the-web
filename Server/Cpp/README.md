@@ -19,6 +19,7 @@ Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Ma
 [oatpp](https://github.com/oatpp/oatpp) | C++ | Apache2.0 | [Todo Win](https://github.com/oatpp/oatpp/issues/2) | Ok | Average | Yes | No | fast web, rest, async
 [facebook/proxygen](https://github.com/facebook/proxygen) | C++ | BSD | Yes | Average | Average | Lots | Yes | Libraries with HTTP server
 [cpr](https://github.com/whoshuu/cpr) | C++11 | MIT | [Maybe](https://github.com/whoshuu/cpr/search?q=windows&type=Issues) | Easy | Average | Yes | No | Spiritual port of Python Requests, Rest, Asynci and more
+[onion](https://github.com/davidmoreno/onion) | C | Apache2.0 & GPLv2 | Seems | Average | Average | Yes | No | Webserver as plugin
 []() | | | | | | | | 
 
 Far from REST but worth mention:
