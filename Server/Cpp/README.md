@@ -14,6 +14,7 @@ Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Ma
 [uWebScokets](https://github.com/uNetworking/uWebSockets) | C++17 header-only | Apache2.0 | Seems | Average | Average | Lots | No | http, websockets, js lib
 [oatpp](https://github.com/oatpp/oatpp) | C++ | Apache2.0 | [Todo Win](https://github.com/oatpp/oatpp/issues/2) | Ok | Average | Yes | No | fast web, rest, async
 [~~cpp-httplib~~](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | No | HTTP, [not async](https://github.com/yhirose/cpp-httplib/issues/133)
+[libhttpserver](https://github.com/etr/libhttpserver) | C++ | LGPL-2.1 | Yes | Average | Average | Yes | No | 
 []() | | | | | | | | 
 
 Turns out to be w/o a native server but has it all:
@@ -35,7 +36,7 @@ Not C++ but may fit:
 
 Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Maintenance | Session | Content
 ---|---|---|---|---|---|---|---|---
-[onion](https://github.com/davidmoreno/onion) | C | Apache2.0 & GPLv2 | Seems | Average | Average | Yes | Yes | Webserver as plugin
+[~~onion~~](https://github.com/davidmoreno/onion) | C | Apache2.0 & GPLv2 | Seems | Average | Average | Yes | Yes | Webserver as plugin, [not async](https://github.com/davidmoreno/onion/issues/237)
 
 Far from REST but worth mention:
 
