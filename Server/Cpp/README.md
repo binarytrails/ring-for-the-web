@@ -13,7 +13,7 @@ Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Ma
 [restino](https://github.com/Stiffstream/restinio) | C++14 | BSD3 | Yes | Average | Huge | Yes | Yes with [Async HTTP Pipelining](https://github.com/Stiffstream/restinio/tree/master/dev/test/http_pipelining) | Rest
 [uWebScokets](https://github.com/uNetworking/uWebSockets) | C++17 header-only | Apache2.0 | Seems | Average | Average | Lots | No | http, websockets, js lib
 [oatpp](https://github.com/oatpp/oatpp) | C++ | Apache2.0 | [Todo Win](https://github.com/oatpp/oatpp/issues/2) | Ok | Average | Yes | No | fast web, rest, async
-[cpp-httplib](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | No | HTTP
+[~~cpp-httplib~~](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | No | HTTP, [not async](https://github.com/yhirose/cpp-httplib/issues/133)
 []() | | | | | | | | 
 
 Turns out to be w/o a native server but has it all:
