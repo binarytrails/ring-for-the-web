@@ -71,3 +71,7 @@ Great but no Windows support.
 
 Simple, direct but no http support.
 
+## CPR
+
+The code is great, it handles sessions but there is no embedded server.
+
