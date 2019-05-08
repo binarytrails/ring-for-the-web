@@ -12,7 +12,6 @@ Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Ma
 [~~pistache~~](https://github.com/oktal/pistache) | C++ | Apache2 | [No win](https://github.com/oktal/pistache/issues/6) | Easy | Huge (1.6M) | Yes | ? | REST
 [restino](https://github.com/Stiffstream/restinio) | C++14 | BSD3 | Yes | Average | Huge | Yes | Yes with [Async HTTP Pipelining](https://github.com/Stiffstream/restinio/tree/master/dev/test/http_pipelining) | Rest
 [envoy](https://github.com/envoyproxy/envoy) | C++ | Apache2.0 | Yes | Elevate | Massive | Lots | Probably | Used by many major corps. & has a [security audit](https://github.com/envoyproxy/envoy/blob/master/docs/SECURITY_AUDIT.pdf)
-[uWebScokets](https://github.com/uNetworking/uWebSockets) | C++17 header-only | Apache2.0 | Seems | Average | Average | Lots | No | http, websockets, js lib
 [oatpp](https://github.com/oatpp/oatpp) | C++ | Apache2.0 | [Todo Win](https://github.com/oatpp/oatpp/issues/2) | Ok | Average | Yes | No | fast web, rest, async
 [~~cpp-httplib~~](https://github.com/yhirose/cpp-httplib) | C++ | MIT | Maybe | Fine | Header | Yes | No | HTTP, [not async](https://github.com/yhirose/cpp-httplib/issues/133)
 [libhttpserver](https://github.com/etr/libhttpserver) | C++ | LGPL-2.1 | Yes | Average | Average | Yes | No | 
@@ -47,6 +46,7 @@ Library | C / C++ | License | Cross-platform | Complexity | Size | Releases / Ma
 [dyad](https://github.com/rxi/dyad) | C | MIT | - | Easy | Light | Not maintained | No | Async TCP
 [cpp-netlib](https://github.com/cpp-netlib/cpp-netlib) | C++ | Boost | Yes | Medium | Medium | Yes | Yes | HTTP
 [restclient-cpp](https://github.com/mrtazz/restclient-cpp) | C++ | MIT | | | | Yes | | libcurl wrapper
+[uWebScokets](https://github.com/uNetworking/uWebSockets) | C++17 header-only | Apache2.0 | Seems | Average | Average | Lots | No | websockets, js lib, clang
 
 
 Definitions:
