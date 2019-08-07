@@ -149,6 +149,6 @@ The code is licensed under a GNU General Public License [GPLv3](http://www.gnu.o
 
 ## Authors
 
-Simon Zeni simon.zeni@savoirfairelinux.com
+Simon Zeni ~~simon.zeni@savoirfairelinux.com~~
 
-Seva Ivanov seva.ivanov@savoirfairelinux.com
+Seva Ivanov seva@binarytrails.net
